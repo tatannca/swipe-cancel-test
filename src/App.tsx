@@ -15,24 +15,6 @@ const swipeImpossible = css`
   padding: 100px 0;
   font-weight: bold;
   position: relative;
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: ${swipeControlRange}px;
-    height: 100%;
-    background: coral;
-  }
-  &:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: ${swipeControlRange}px;
-    height: 100%;
-    background: coral;
-  }
 `;
 
 function App() {
