@@ -27,6 +27,16 @@ function App() {
     console.log(`touch start ${e.pageX}`);
   }
 
+  useEffect(() => {
+    const element = document.querySelector("div");
+
+    if(!element) return;
+    element.addEventListener("touchstart", (e: any) => {
+      if (e.pageX > 10 && e.pageX < window.innerWidth - 10) return;
+      e.preventDefault();
+    });
+  }, []);
+
   // useEffect(() => {
   //   if (container.current) {
   //     container.current.addEventListener('touchstart', (e) => touchStartEvent(e));
