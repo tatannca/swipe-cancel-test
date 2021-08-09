@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { css } from '@emotion/react';
 
-const swipeControlRange = 30;
 const swipeTitle = css`
   font-size: 20px;
   text-align: center;
@@ -26,16 +25,6 @@ function App() {
     e.preventDefault();
   }
 
-  // useEffect(() => {
-  //   const element = document.querySelector("div");
-
-  //   if(!element) return;
-  //   element.addEventListener("touchstart", (e: any) => {
-  //     if (e.pageX > 10 && e.pageX < window.innerWidth - 10) return;
-  //     e.preventDefault();
-  //   });
-  // }, []);
-
   useEffect(() => {
     if (container.current) {
       container.current.addEventListener('touchstart', (e) => touchStartEvent(e));
@@ -49,12 +38,10 @@ function App() {
   }, [container.current]);
 
   return (
-    <div
-      ref={container}
-      onTouchStart={touchStartEvent}
-    >
+    <div>
       <h1 css={swipeTitle}>スワイプキャンセルテスト</h1>
-      <div css={swipeImpossible}>スワイプ不可ブロック</div>
+      <div ref={container} css={swipeImpossible}>スワイプ不可ブロック</div>
+      {/* <div onTouchStart={e => touchStartEvent(e)} css={swipeImpossible}>スワイプ不可ブロック</div> */}
     </div>
   )
 }
