@@ -24,36 +24,34 @@ function App() {
   const touchStartEvent = (e: any) => {
     if (e.pageX > 30 && e.pageX < window.innerWidth - 30) return;
     e.preventDefault();
-    console.log(`touch start ${e.pageX}`);
   }
 
-  useEffect(() => {
-    const element = document.querySelector("div");
-
-    if(!element) return;
-    element.addEventListener("touchstart", (e: any) => {
-      if (e.pageX > 10 && e.pageX < window.innerWidth - 10) return;
-      e.preventDefault();
-    });
-  }, []);
-
   // useEffect(() => {
-  //   if (container.current) {
-  //     container.current.addEventListener('touchstart', (e) => touchStartEvent(e));
-  //   }
+  //   const element = document.querySelector("div");
 
-  //   return () => {
-  //     if (container.current) {
-  //       container.current.removeEventListener('touchstart', touchStartEvent);
-  //     }
-  //   }
-  // }, [container.current]);
+  //   if(!element) return;
+  //   element.addEventListener("touchstart", (e: any) => {
+  //     if (e.pageX > 10 && e.pageX < window.innerWidth - 10) return;
+  //     e.preventDefault();
+  //   });
+  // }, []);
+
+  useEffect(() => {
+    if (container.current) {
+      container.current.addEventListener('touchstart', (e) => touchStartEvent(e));
+    }
+
+    return () => {
+      if (container.current) {
+        container.current.removeEventListener('touchstart', touchStartEvent);
+      }
+    }
+  }, [container.current]);
 
   return (
     <div
       ref={container}
       onTouchStart={touchStartEvent}
-      onClick={touchStartEvent}
     >
       <h1 css={swipeTitle}>スワイプキャンセルテスト</h1>
       <div css={swipeImpossible}>スワイプ不可ブロック</div>
