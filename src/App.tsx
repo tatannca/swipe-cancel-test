@@ -40,8 +40,8 @@ function App() {
   return (
     <div>
       <h1 css={swipeTitle}>スワイプキャンセルテスト</h1>
-      <div ref={container} css={swipeImpossible}>スワイプ不可ブロック</div>
-      {/* <div onTouchStart={e => touchStartEvent(e)} css={swipeImpossible}>スワイプ不可ブロック</div> */}
+      {/* <div ref={container} css={swipeImpossible}>スワイプ不可ブロック</div> */}
+      <div onTouchStart={touchStartEvent} css={swipeImpossible}>スワイプ不可ブロック</div>
     </div>
   )
 }
